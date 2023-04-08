@@ -1,0 +1,26 @@
+{
+  "name": "lopatin96/blogpackage",
+  "autoload": {
+    "psr-4": {
+      "Atin\\Blog\\": "src/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Atin\\BlogPackage\\BlogPackageServiceProvider"
+      ]
+    }
+  },
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Vladyslav Lopatin",
+      "email": "ilopatin3@gmail.com"
+    }
+  ],
+  "require-dev": {
+    "orchestra/testbench": "^8.0"
+  }
+}
