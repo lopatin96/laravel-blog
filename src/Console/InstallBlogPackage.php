@@ -1,6 +1,6 @@
 <?php
 
-namespace Atin\BlogPackage\Console;
+namespace Atin\LaravelBlog\Console;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\File;
@@ -48,7 +48,7 @@ class InstallBlogPackage extends Command
     private function publishConfiguration($forcePublish = false)
     {
         $params = [
-            '--provider' => "Atin\BlogPackage\BlogPackageServiceProvider",
+            '--provider' => "Atin\LaravelBlog\BlogPackageServiceProvider",
             '--tag' => "config"
         ];
 

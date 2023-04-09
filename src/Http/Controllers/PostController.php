@@ -1,8 +1,8 @@
 <?php
 
-namespace Atin\BlogPackage\Http\Controllers;
+namespace Atin\LaravelBlog\Http\Controllers;
 
-use Atin\BlogPackage\Models\Post;
+use Atin\LaravelBlog\Models\Post;
 use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller

@@ -1,6 +1,6 @@
 <?php
 
-namespace Atin\BlogPackage;
+namespace Atin\LaravelBlog;
 
 use Illuminate\Support\ServiceProvider;
 
