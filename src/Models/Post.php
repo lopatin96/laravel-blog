@@ -9,7 +9,7 @@ use Spatie\Sluggable\SlugOptions;
 
 class Post extends Model
 {
-    use Actionable, HasFactory, HasSlug;
+    use HasFactory, HasSlug;
 
     protected $fillable = [
         'title',
