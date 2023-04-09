@@ -1,14 +1,15 @@
 {
   "name": "lopatin96/blogpackage",
+  "description": "Laravel blog",
   "autoload": {
     "psr-4": {
-      "Atin\\Blog\\": "src/"
+      "Atin\\LaravelBlog\\": "src"
     }
   },
   "extra": {
     "laravel": {
       "providers": [
-        "Atin\\BlogPackage\\BlogPackageServiceProvider"
+        "Atin\\LaravelBlog\\BlogPackageServiceProvider"
       ]
     }
   },
