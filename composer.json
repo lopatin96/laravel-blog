@@ -1,5 +1,5 @@
 {
-  "name": "lopatin96/blogpackage",
+  "name": "lopatin96/laravel-blog",
   "description": "Laravel blog",
   "autoload": {
     "psr-4": {
@@ -22,7 +22,7 @@
     }
   ],
   "require": {
-    "php": ">=8.1",
+    "php": ">=8.0",
     "spatie/laravel-sluggable": "^3.4"
   },
   "require-dev": {

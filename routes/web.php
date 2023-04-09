@@ -2,6 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::resource('posts', Atin\LaravelBlog\Http\Controllers\PostController::class)
+Route::resource('blog', Atin\LaravelBlog\Http\Controllers\PostController::class)
     ->only(['index', 'show']);
-Route::get('/posts/{post}/image', [Atin\LaravelBlog\Http\Controllers\PostController::class, 'image']);
+Route::get('/blog/{post}/image', [Atin\LaravelBlog\Http\Controllers\PostController::class, 'image']);

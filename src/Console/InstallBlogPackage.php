@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\File;
 
 class InstallBlogPackage extends Command
 {
-    protected $signature = 'blogpackage:install';
+    protected $signature = 'laravel-blog:install';
 
     protected $description = 'Install the BlogPackage';
 
@@ -17,7 +17,7 @@ class InstallBlogPackage extends Command
 
         $this->info('Publishing configuration...');
 
-        if (! $this->configExists('blogpackage.php')) {
+        if (! $this->configExists('laravel-blog.php')) {
             $this->publishConfiguration();
             $this->info('Published configuration');
         } else {

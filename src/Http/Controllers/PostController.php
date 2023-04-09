@@ -9,23 +9,24 @@ class PostController extends Controller
 {
     public function index()
     {
-        return view('blogpackage::posts.index', [
-            'articles' => Post::getPublished()
-                ->paginate(),
+        return view('laravel-blog::posts.index', [
+            'posts' => Post::getPublished()->paginate(),
         ]);
     }
 
     public function show(string $slug)
     {
-        $article = Post::whereSlug($slug)->firstOrFail();
+        $post = Post::whereSlug($slug)->firstOrFail();
 
-        return view('blogpackage::posts.show', [
-            'article' => $article,
+        return view('laravel-blog::posts.show', [
+            'post' => $post,
         ]);
     }
 
-    public function image(Post $article)
+    public function image(string $slug)
     {
-        return Storage::disk('s3')->response($article->image);
+        $post = Post::whereSlug($slug)->firstOrFail();
+
+        return Storage::disk('s3')->response($post->image);
     }
 }

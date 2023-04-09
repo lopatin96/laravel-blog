@@ -13,13 +13,10 @@ class BlogServiceProvider extends ServiceProvider
 
     public function boot()
     {
-        // Migrations
         $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
-
-        // Routes
         $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
-
-        // Resources
-        $this->loadViewsFrom(__DIR__.'/../resources/views', 'blogpackage');
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'laravel-blog');
+        $this->loadTranslationsFrom(__DIR__.'/../lang', 'laravel-blog');
+        $this->mergeConfigFrom(__DIR__.'/../config/config.php', 'laravel-blog');
     }
 }
