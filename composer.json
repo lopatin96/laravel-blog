@@ -20,6 +20,10 @@
       "email": "ilopatin3@gmail.com"
     }
   ],
+  "require": {
+    "php": ">=8.1",
+    "spatie/laravel-sluggable": "^3.4"
+  },
   "require-dev": {
     "orchestra/testbench": "^8.0"
   }
