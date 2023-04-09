@@ -2,10 +2,10 @@
     <div class="p-4 h-full bg-gray-900 bg-opacity-70 rounded-xl">
         <div class="flex flex-col justify-between h-full">
             <div class="mb-8 break-all">
-                <div class="mb-9 w-full overflow-hidden rounded-2xl">
+                <div class="relative z-20 mb-9 w-full overflow-hidden rounded-2xl">
                     @if ($post->image)
                         <img
-                            class="w-full transform hover:scale-105 transition ease-in-out duration-1000"
+                            class="z-10 w-full transform hover:scale-105 transition ease-in-out duration-1000"
                             src="/blog/{{ $post->slug }}/image"
                             alt=""
                         >
