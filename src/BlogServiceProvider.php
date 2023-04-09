@@ -20,8 +20,12 @@ class BlogServiceProvider extends ServiceProvider
         $this->mergeConfigFrom(__DIR__.'/../config/config.php', 'laravel-blog');
 
         $this->publishes([
-            __DIR__.'/../database/migrations/' => database_path('/migrations')
+            __DIR__.'/../database/migrations' => database_path('/migrations')
         ], 'laravel-blog-migrations');
+
+        $this->publishes([
+            __DIR__.'/../resources/views' => resource_path('views/vendor/views')
+        ], 'laravel-blog-views');
 
         $this->publishes([
             __DIR__.'/../lang' => $this->app->langPath('vendor/laravel-blog'),
