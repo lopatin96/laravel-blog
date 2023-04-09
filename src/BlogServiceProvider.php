@@ -4,7 +4,7 @@ namespace Atin\BlogPackage;
 
 use Illuminate\Support\ServiceProvider;
 
-class BlogPackageServiceProvider extends ServiceProvider
+class BlogServiceProvider extends ServiceProvider
 {
     public function register()
     {
