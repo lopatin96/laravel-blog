@@ -9,7 +9,7 @@
   "extra": {
     "laravel": {
       "providers": [
-        "Atin\\LaravelBlog\\"
+        "Atin\\LaravelBlog\\BlogServiceProvider"
       ]
     }
   },
