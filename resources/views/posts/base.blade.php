@@ -1,4 +1,4 @@
 <x-guest-layout>
-    @include('layouts.header', ['showLinks' => false])
+    @include('posts.header')
     @yield('content')
 </x-guest-layout>

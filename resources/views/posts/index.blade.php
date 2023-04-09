@@ -1,4 +1,4 @@
-@extends('blog.base')
+@extends('posts.base')
 
 @section('content')
     <section class="pt-24 pb-36 bg-black overflow-hidden">
