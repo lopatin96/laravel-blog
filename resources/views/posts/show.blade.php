@@ -33,7 +33,7 @@
                 <img
                     class="object-cover md:rounded-lg mb-16"
                     src="/blog/{{ $post->slug }}/image"
-                    alt=""
+                    alt="{{ $post->title }}"
                 >
 
                 {!! Illuminate\Support\Str::markdown($post->body) !!}

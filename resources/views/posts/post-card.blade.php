@@ -7,7 +7,7 @@
                         <img
                             class="z-10 w-full transform hover:scale-105 transition ease-in-out duration-1000"
                             src="/blog/{{ $post->slug }}/image"
-                            alt=""
+                            alt="{{ $post->title }}"
                         >
                     @endif
                 </div>

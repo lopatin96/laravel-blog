@@ -8,7 +8,7 @@
                         <img
                             src="{{ asset('images/logo/pp_cube.png') }}"
                             class="block sm:hidden h-10"
-                            alt="Planning Poker logo"
+                            alt="logo"
                             loading="lazy"
                         >
                     </a>
