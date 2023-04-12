@@ -28,11 +28,11 @@ class BlogServiceProvider extends ServiceProvider
         ], 'laravel-blog-views');
 
         $this->publishes([
-            __DIR__.'/../lang' => $this->app->langPath('vendor/laravel-blog'),
+            __DIR__.'/../lang' => $this->app->langPath('vendor/blog'),
         ], 'laravel-blog-lang');
 
         $this->publishes([
-            __DIR__.'/../config/config.php' => config_path('laravel-blog.php')
+            __DIR__.'/../config/config.php' => config_path('blog.php')
         ], 'laravel-blog-config');
     }
 }
