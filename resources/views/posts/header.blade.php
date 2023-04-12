@@ -22,7 +22,7 @@
                                 class=" flex items-center space-x-2 py-3 px-5 w-full text-white font-semibold rounded-xl focus:ring focus:outline-none focus:ring-gray-500 bg-black hover:bg-gray-900 transition ease-in-out duration-200 select-none"
                                 href="{{ route('dashboard') }}"
                             >
-                                <span>{{ __('laravel-blog::laravel-blog.Go dashboard') }}</span>
+                                <span>{{ __('laravel-blog::posts.Go dashboard') }}</span>
 
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
@@ -35,7 +35,7 @@
                                 class="py-3 px-5 w-full text-white font-semibold rounded-xl focus:ring focus:outline-none focus:ring-gray-500 bg-black hover:bg-gray-900 transition ease-in-out duration-200 select-none"
                                 href="{{ route('login') }}"
                             >
-                                {{ __('laravel-blog::laravel-blog.Sign in') }}
+                                {{ __('laravel-blog::posts.Sign in') }}
                             </a>
                         </div>
                         <div class="inline-block">
@@ -43,7 +43,7 @@
                                 class="py-3 px-1 sm:px-5 w-full font-semibold transition ease-in-out select-none hover:underline"
                                 href="{{ route('register') }}"
                             >
-                                {{ __('laravel-blog::laravel-blog.Sign up') }}
+                                {{ __('laravel-blog::posts.Sign up') }}
                             </a>
                         </div>
                     @endif

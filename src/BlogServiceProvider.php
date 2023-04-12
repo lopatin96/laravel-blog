@@ -24,7 +24,7 @@ class BlogServiceProvider extends ServiceProvider
         ], 'laravel-blog-migrations');
 
         $this->publishes([
-            __DIR__.'/../resources/views' => resource_path('views/vendor/views')
+            __DIR__.'/../resources/views' => resource_path('views/vendor/laravel-blog')
         ], 'laravel-blog-views');
 
         $this->publishes([
