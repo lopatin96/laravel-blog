@@ -4,7 +4,7 @@
     <section class="pt-24 pb-36 bg-black overflow-hidden">
         <div class="container px-4 mx-auto max-w-6xl">
             <h2 class="mb-6 text-6xl md:text-8xl xl:text-10xl text-white font-bold font-heading tracking-px-n leading-none">
-                {{ __('laravel-blog::blog.Our Latest Articles') }}
+                {{ __('laravel-blog::laravel-blog.Our Latest Articles') }}
             </h2>
             <div class="flex flex-wrap">
                 @if (count($posts) > 0)
@@ -13,7 +13,7 @@
                     @endforeach
                 @else
                     <p class="text-gray-400">
-                        {{ __('laravel-blog::blog.No articles') }}
+                        {{ __('laravel-blog::laravel-blog.No articles') }}
                     </p>
                 @endif
             </div>
