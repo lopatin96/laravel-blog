@@ -17,7 +17,7 @@ class InstallBlogPackage extends Command
 
         $this->info('Publishing configuration...');
 
-        if (! $this->configExists('laravel-blog.php')) {
+        if (! $this->configExists('blog.php')) {
             $this->publishConfiguration();
             $this->info('Published configuration');
         } else {
