@@ -10,7 +10,7 @@
         <div class="container px-4 mx-auto max-w-6xl break-all">
             <div class="flex justify-between items-center space-x-4 w-full p-4">
                 <nav class="py-3 rounded-md w-full">
-                    <ol class="list-reset flex">
+                    <ol class="flex space-x-2">
                         <li>
                             <a href="/blog" class="text-blue-600 hover:text-blue-700 flex space-x-1 items-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
@@ -19,7 +19,7 @@
                                 <span>{{ __('laravel-blog::posts.Blog') }}</span>
                             </a>
                         </li>
-                        <li><span class="text-gray-500 mx-2">/</span></li>
+                        <li class="text-gray-500">/</li>
                         <li class="text-gray-500">{{ __('laravel-blog::posts.Article') }}</b></li>
                     </ol>
                 </nav>
