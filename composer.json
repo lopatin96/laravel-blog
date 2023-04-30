@@ -23,7 +23,8 @@
   ],
   "require": {
     "php": ">=8.0",
-    "spatie/laravel-sluggable": "^3.4"
+    "spatie/laravel-sluggable": "^3.4",
+    "lopatin96/laravel-seo": "^1.0"
   },
   "require-dev": {
     "orchestra/testbench": "^8.0"

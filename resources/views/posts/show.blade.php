@@ -1,9 +1,7 @@
 @extends('laravel-blog::posts.base')
 
-@section(
-    'title',
-    config('app.name') . ': ' . ($post->meta_title ?: $post->title)
-)
+<x-laravel-seo::title :strict-title="$post->meta_title ?: $post->title" />
+<x-laravel-seo::description :description="$post->meta_description" />
 
 @section('content')
     <section class="pt-12 pb-36 bg-black overflow-hidden">
