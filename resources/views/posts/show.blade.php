@@ -24,9 +24,9 @@
             </div>
 
             <article class="prose prose-invert lg:prose-xl mx-auto px-4 mb-4">
-                <h2 class="mt-5 mb-12 text-6xl md:text-8xl xl:text-8xl text-white font-bold font-heading tracking-px-n leading-none">
+                <h1 class="mt-5 mb-12 text-white font-bold font-heading tracking-px-n leading-none break-normal">
                     {{ $post->title }}
-                </h2>
+                </h1>
 
                 <img
                     class="object-cover md:rounded-lg mb-16"
