@@ -1,6 +1,14 @@
 # Install
-### Trait and Casts
+### Trait
 Add ```HasPosts``` trait to User model.
+
+```php
+use Atin\LaravelBlog\Traits\HasPosts;
+
+class User extends Authenticatable
+{
+    use HasPosts;
+```
 
 ## Nova
 ### Metrics
