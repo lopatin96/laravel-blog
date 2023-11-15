@@ -57,6 +57,7 @@ use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Stack;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Trix;
+use Laravel\Nova\Fields\URL;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Post extends Resource
@@ -78,8 +79,11 @@ class Post extends Resource
             BelongsTo::make('User')
                 ->displayUsing(fn ($user) => mb_strimwidth($user->name, 0, 32, '…')),
 
+            URL::make('Open', fn () => '/blog/' . $this->slug),
+
             Text::make('Title')
-                ->sortable(),
+                ->sortable()
+                ->displayUsing(fn () => mb_strimwidth($this->title, 0, 32, '…')),
 
             Text::make('Slug')
                 ->hideFromIndex(),
@@ -102,7 +106,8 @@ class Post extends Resource
                         : null;
                 }),
 
-            Text::make('Feature'),
+            Text::make('Feature')
+                ->sortable(),
 
             Text::make('Meta title')
                 ->hideFromIndex(),
@@ -113,6 +118,7 @@ class Post extends Resource
             Boolean::make('Published'),
 
             Number::make('Views')
+                ->sortable()
                 ->readonly(),
 
             Stack::make('Last View At', [
