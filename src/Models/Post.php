@@ -2,6 +2,7 @@
 
 namespace Atin\LaravelBlog\Models;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Sluggable\HasSlug;
@@ -12,11 +13,23 @@ class Post extends Model
     use HasFactory, HasSlug;
 
     protected $fillable = [
+        'user_id',
         'title',
         'image',
         'feature',
         'published',
+        'views',
+        'last_view_at',
     ];
+
+    protected $casts = [
+        'last_view_at' => 'datetime',
+    ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 
     public static function getPublished()
     {
@@ -24,9 +37,6 @@ class Post extends Model
             ->where('published', true);
     }
 
-    /**
-     * Get the options for generating the slug.
-     */
     public function getSlugOptions(): SlugOptions
     {
         return SlugOptions::create()
@@ -35,11 +45,6 @@ class Post extends Model
             ->doNotGenerateSlugsOnUpdate();
     }
 
-    /**
-     * Get the route key for the model.
-     *
-     * @return string
-     */
     public function getRouteKeyName()
     {
         return 'slug';

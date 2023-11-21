@@ -23,10 +23,10 @@
                 </nav>
             </div>
 
-            <article class="prose prose-invert lg:prose-xl mx-auto px-4 mb-4">
-                <h2 class="mt-5 mb-12 text-6xl md:text-8xl xl:text-8xl text-white font-bold font-heading tracking-px-n leading-none">
+            <article class="prose prose-invert lg:prose-xl mx-auto px-4 mb-4 break-normal">
+                <h1 class="mt-5 mb-12 text-white font-bold font-heading tracking-px-n leading-none">
                     {{ $post->title }}
-                </h2>
+                </h1>
 
                 <img
                     class="object-cover md:rounded-lg mb-16"
@@ -34,7 +34,9 @@
                     alt="{{ $post->title }}"
                 >
 
-                {!! Illuminate\Support\Str::markdown($post->body) !!}
+                <div class="leading-normal">
+                    {!! Illuminate\Support\Str::markdown($post->body) !!}
+                </div>
 
                 <span class="inline-block text-xs text-gray-500">
                     <span
