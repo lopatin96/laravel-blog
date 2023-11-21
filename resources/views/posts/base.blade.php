@@ -1,7 +1,7 @@
 <x-guest-layout>
     @include(config('laravel-blog.header_path'))
 
-    <x-laravel-seo::title title="blog.title" />
+    <x-laravel-seo::title title='blog.title' />
 
     @yield('content')
 
