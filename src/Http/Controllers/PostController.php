@@ -4,6 +4,7 @@ namespace Atin\LaravelBlog\Http\Controllers;
 
 use Atin\LaravelBlog\Models\Post;
 use Illuminate\Support\Facades\Storage;
+use Jaybizzle\CrawlerDetect\CrawlerDetect;
 
 class PostController extends Controller
 {
@@ -20,7 +21,9 @@ class PostController extends Controller
         $post = Post::whereSlug($slug)
             ->firstOrFail();
 
-        $post->increment('views', 1, ['last_view_at' => now()]);
+        if (! (new CrawlerDetect)->isCrawler()) {
+            $post->increment('views', 1, ['last_view_at' => now()]);
+        }
 
         return view('laravel-blog::posts.show', [
             'post' => $post,
