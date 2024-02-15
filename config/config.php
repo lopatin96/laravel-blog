@@ -1,6 +1,6 @@
 <?php
 
 return [
-    'header_path' => 'layouts.header',
-    'footer_path' => 'layouts.footer',
+    'header_path' => 'sections.header',
+    'footer_path' => 'sections.footer',
 ];
