@@ -7,8 +7,8 @@
                 {{ __('laravel-blog::posts.Our Latest Articles') }}
             </h2>
             <div class="flex flex-wrap">
-                @if (count($posts) > 0)
-                    @foreach ($posts as $post)
+                @if(count($posts) > 0)
+                    @foreach($posts as $post)
                         @include('laravel-blog::posts.post-card', ['post' => $post])
                     @endforeach
                 @else
@@ -17,6 +17,8 @@
                     </p>
                 @endif
             </div>
+
+            {{ $posts->links() }}
         </div>
     </section>
 @endsection
