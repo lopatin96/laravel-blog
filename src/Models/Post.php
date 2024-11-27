@@ -31,6 +31,11 @@ class Post extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function getPreviewAttribute(): string
+    {
+        return mb_substr(strip_tags($this->body), 0, 256);
+    }
+
     public static function getPublished()
     {
         return Post::orderBy('id', 'desc')
