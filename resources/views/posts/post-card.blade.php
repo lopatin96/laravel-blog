@@ -23,7 +23,7 @@
                 <div>
                     <a
                         class="text-lg font-medium text-red-500 underline hover:no-underline"
-                        href="/blog/{{ $post->slug }}"
+                        href="{{ $post->getUrl() }}"
                     >{{ __('laravel-blog::posts.Read more') }}</a>
                 </div>
 

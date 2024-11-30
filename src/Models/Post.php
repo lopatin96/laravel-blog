@@ -9,10 +9,11 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Facades\Storage;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
+use Laravel\Nova\Actions\Actionable;
 
 class Post extends Model
 {
-    use HasFactory, HasSlug;
+    use Actionable, HasFactory, HasSlug;
 
     protected $fillable = [
         'user_id',
@@ -50,6 +51,13 @@ class Post extends Model
     public function getPreviewAttribute(): string
     {
         return mb_substr(strip_tags($this->body), 0, 256);
+    }
+
+    public function getUrl(): string
+    {
+        return route('blog.show', [
+            'blog' => $this->slug,
+        ]);
     }
 
     public function getSlugOptions(): SlugOptions
