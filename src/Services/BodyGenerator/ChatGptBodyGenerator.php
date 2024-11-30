@@ -27,10 +27,10 @@ TEXT,
                         'content' => <<<TEXT
 Write an interesting and unique article based on the following inputs:
 - **Title**: $this->title
-- **Language**: $this->lang
+- **Language Code**: $this->langCode
 - **Website Description**: $siteDescription
 
-Make sure the article is aligned with the website’s goals, incorporates relevant keywords (based on the website description), and provides value to the target audience. Highlight or **bold** important points throughout the article. Structure the article clearly with an introduction, body, and conclusion.
+Make sure the article is aligned with the website’s goals, incorporates relevant keywords (based on the website description), and provides value to the target audience. Highlight or **bold** important points throughout the article. Include a reference to the website's homepage at the end of the article using the format: `[Website Name](/[Language Code])`.
 TEXT
                     ],
                 ],
