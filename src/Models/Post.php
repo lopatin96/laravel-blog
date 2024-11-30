@@ -47,6 +47,11 @@ class Post extends Model
         return Storage::disk('s3')->temporaryUrl($this->image, now()->addMinute());
     }
 
+    public function getPreviewAttribute(): string
+    {
+        return mb_substr(strip_tags($this->body), 0, 256);
+    }
+
     public function getSlugOptions(): SlugOptions
     {
         return SlugOptions::create()
