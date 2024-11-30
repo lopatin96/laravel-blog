@@ -16,7 +16,7 @@
             </p>
 
             <p class="mb-4 text-gray-100 leading-relaxed break-words leading-snug">
-                {{ strip_tags(substr($post->body, 0, 255)) }}
+                {{ $post->preview }}
             </p>
 
             <div class="flex items-center justify-between">

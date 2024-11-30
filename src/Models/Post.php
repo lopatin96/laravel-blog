@@ -38,11 +38,6 @@ class Post extends Model
         $query->where('published', true);
     }
 
-    public function getRouteKeyName(): string
-    {
-        return 'slug';
-    }
-
     public function getImageUrlAttribute(): ?string
     {
         if (empty($this->image)) {
@@ -58,5 +53,10 @@ class Post extends Model
             ->generateSlugsFrom('title')
             ->saveSlugsTo('slug')
             ->doNotGenerateSlugsOnUpdate();
+    }
+
+    public function getRouteKeyName(): string
+    {
+        return 'slug';
     }
 }
