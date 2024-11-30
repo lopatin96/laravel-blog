@@ -168,6 +168,11 @@ class Post extends Resource
 }
 ```
 
+## Post generator
+## Config
+Fill in `content_generation_data` in `laravel-blog.php` with data for which countries (languages) and with which probability from 0 to 100 (where 0 - do not generate, 50 - generate every 2 days, 100 - generate every day) you want to automatically generate new posts.
+Important! Provide a wide description of your website in `site_description`.
+
 # Publishing
 ### Migrations
 ```php

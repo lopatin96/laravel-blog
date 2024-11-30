@@ -24,7 +24,9 @@
   "require": {
     "php": ">=8.0",
     "jaybizzle/crawler-detect": "^1.2",
-    "spatie/laravel-sluggable": "^3.4"
+    "spatie/laravel-sluggable": "^3.4",
+    "lopatin96/laravel-ui-components": "^1.0",
+    "orhanerday/open-ai": "^5.2"
   },
   "require-dev": {
     "orchestra/testbench": "^8.0"

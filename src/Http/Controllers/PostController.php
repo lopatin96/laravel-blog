@@ -4,19 +4,21 @@ namespace Atin\LaravelBlog\Http\Controllers;
 
 use Atin\LaravelBlog\Models\Post;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\View\View;
 use Jaybizzle\CrawlerDetect\CrawlerDetect;
 
 class PostController extends Controller
 {
-    public function index()
+    public function index(): View
     {
         return view('laravel-blog::posts.index', [
-            'posts' => Post::getPublished()
+            'posts' => Post::latest()
+                ->published()
                 ->paginate(),
         ]);
     }
 
-    public function show(string $slug)
+    public function show(string $slug): View
     {
         $post = Post::whereSlug($slug)
             ->firstOrFail();

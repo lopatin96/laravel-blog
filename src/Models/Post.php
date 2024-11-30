@@ -5,6 +5,8 @@ namespace Atin\LaravelBlog\Models;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Support\Facades\Storage;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 
@@ -26,15 +28,28 @@ class Post extends Model
         'last_view_at' => 'datetime',
     ];
 
-    public function user()
+    public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
 
-    public static function getPublished()
+    public function scopePublished($query): void
     {
-        return Post::orderBy('id', 'desc')
-            ->where('published', true);
+        $query->where('published', true);
+    }
+
+    public function getRouteKeyName(): string
+    {
+        return 'slug';
+    }
+
+    public function getImageUrlAttribute(): ?string
+    {
+        if (empty($this->image)) {
+            return null;
+        }
+
+        return Storage::disk('s3')->temporaryUrl($this->image, now()->addMinute());
     }
 
     public function getSlugOptions(): SlugOptions
@@ -43,10 +58,5 @@ class Post extends Model
             ->generateSlugsFrom('title')
             ->saveSlugsTo('slug')
             ->doNotGenerateSlugsOnUpdate();
-    }
-
-    public function getRouteKeyName()
-    {
-        return 'slug';
     }
 }
