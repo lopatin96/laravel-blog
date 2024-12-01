@@ -9,7 +9,7 @@
                     <img
                         class="z-10 w-full transform group-hover:scale-105 transition ease-in-out duration-1000"
                         src="{{ $post->image_url }}"
-                        alt="{{ $post->title }}"
+                        alt="{{ $post->image_alt }}"
                     >
                 @endif
             </div>

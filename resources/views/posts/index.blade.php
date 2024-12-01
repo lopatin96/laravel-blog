@@ -18,7 +18,9 @@
                 @endif
             </div>
 
-            {{ $posts->links() }}
+            <div class="mt-5">
+                {{ $posts->links() }}
+            </div>
         </div>
     </section>
 @endsection
