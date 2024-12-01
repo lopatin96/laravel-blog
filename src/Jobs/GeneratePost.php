@@ -2,6 +2,7 @@
 
 namespace Atin\LaravelBlog\Jobs;
 
+use Atin\LaravelBlog\Services\PostGenerator\ChatGptPostGenerator;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
@@ -13,14 +14,14 @@ class GeneratePost implements ShouldQueue
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
     public function __construct(
-        protected string $title,
-        protected string $lang,
+        protected string $postIdea,
+        protected string $langCode,
     )
     {
     }
 
     public function handle(): void
     {
-        $this->article->update(['category' => ArticleCategory::tryFrom((new ChatGptCategoryGenerator($this->article))->generate())]);
+        (new ChatGptPostGenerator($this->postIdea, $this->langCode))->generate();
     }
 }

@@ -15,14 +15,10 @@ class Post extends Model
 {
     use Actionable, HasFactory, HasSlug;
 
-    protected $fillable = [
-        'user_id',
-        'title',
-        'image',
-        'feature',
-        'published',
-        'views',
-        'last_view_at',
+    protected $guarded = [
+        'id',
+        'created_at',
+        'updated_at',
     ];
 
     protected $casts = [
@@ -50,7 +46,7 @@ class Post extends Model
 
     public function getPreviewAttribute(): string
     {
-        return mb_substr(strip_tags($this->body), 0, 256);
+        return mb_substr(strip_tags(preg_replace('/[#*_`~>\\-]+|^-+$/m', '', $this->body)), 0, 256);
     }
 
     public function getUrl(): string

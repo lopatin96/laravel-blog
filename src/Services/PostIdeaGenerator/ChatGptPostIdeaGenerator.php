@@ -44,8 +44,7 @@ TEXT
             ]), false, 512, JSON_THROW_ON_ERROR);
 
             return $response->choices[0]->message->content;
-        } catch (Throwable $exception) {
-            var_dump($exception);
+        } catch (Throwable) {
             throw new RuntimeException;
         }
     }
