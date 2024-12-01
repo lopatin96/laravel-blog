@@ -13,7 +13,10 @@ class ChatGptImageGenerator extends ImageGenerator
     {
         try {
             $response = json_decode((new OpenAi(env('OPENAI_API_KEY')))->image([
-                'prompt' => $this->imageAlt,
+                'prompt' => <<<TEXT
+Highly detailed photorealistic, with natural lighting, and a neutral blurred background.
+$this->imageAlt,
+TEXT,
                 'n' => 1,
                 'size' => '512x512',
                 'response_format' => 'url',

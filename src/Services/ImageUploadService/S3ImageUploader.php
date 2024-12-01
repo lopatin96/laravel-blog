@@ -8,8 +8,7 @@ use Illuminate\Support\Str;
 
 class S3ImageUploader extends ImageUploader
 {
-
-    static public function uploadFromUrl(string $url): string
+    public static function uploadFromUrl(string $url): string
     {
         $imageContent = file_get_contents($url);
 
