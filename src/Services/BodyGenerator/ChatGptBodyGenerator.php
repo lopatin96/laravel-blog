@@ -32,7 +32,7 @@ Write an interesting and unique article based on the following inputs:
 - **Website Name**: $siteName
 - **Website Description**: $siteDescription
 
-Ensure the article is aligned with the website’s goals, incorporates relevant keywords (based on the website description), and provides value to the target audience. Highlight or **bold** important points throughout the article. Include at least two or three references to the website's homepage in the format: `[try for free now](/$this->langCode)`, `[visit our platform](/$this->langCode)`, or `[get started now](/$this->langCode)`. These links should fit naturally into the content and encourage users to engage with the website. Make sure that the link text is translated to the language specified by `$this->langCode` (e.g., for Ukrainian, use "почати зараз", "відвідайте нашу платформу").
+Do not generate title! Ensure the article is aligned with the website’s goals, incorporates relevant keywords (based on the website description), and provides value to the target audience. Highlight or **bold** important points throughout the article. Include at least two or three references to the website's homepage in the format: `[try for free now](/$this->langCode)`, `[visit our platform](/$this->langCode)`, or `[get started now](/$this->langCode)`. These links should fit naturally into the content and encourage users to engage with the website. Make sure that the link text is translated to the language specified by `$this->langCode` (e.g., for Ukrainian, use "почати зараз", "відвідайте нашу платформу").
 
 Conclude the article by referencing the homepage again: `[$siteName](/$this->langCode)`, ensuring the text is appropriate to the article's context and translated accordingly.
 TEXT

@@ -3,6 +3,8 @@
 namespace Atin\LaravelBlog\Models;
 
 use App\Models\User;
+use Atin\LaravelBlog\Enums\WritingSystem;
+use Atin\LaravelBlog\Helpers\LanguageHelper;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -46,7 +48,11 @@ class Post extends Model
 
     public function getPreviewAttribute(): string
     {
-        return mb_substr(strip_tags(preg_replace('/[#*_`~>\\-]+|^-+$/m', '', $this->body)), 0, 256);
+        if (LanguageHelper::detectWritingSystem($this->body) === WritingSystem::Alphabetic) {
+            return mb_substr(strip_tags(preg_replace('/[#*_`~>\\-]+|^-+$/m', '', $this->body)), 0, 256);
+        }
+
+        return mb_substr(strip_tags(preg_replace('/[#*_`~>\\-]+|^-+$/m', '', $this->body)), 0, 128);
     }
 
     public function getUrl(): string

@@ -6,7 +6,7 @@
 @section('content')
     <section class="pt-12 pb-36 bg-black overflow-hidden">
         <div class="container px-4 mx-auto max-w-4xl break-all">
-            <div class="mx-5 sm:mx-0">
+            <div class="mx-5 sm:mx-0 mb-5">
                 <x-laravel-ui-components::breadcrumbs :breadcrumbs="[
                     ['title' => __('laravel-blog::posts.Blog'), 'route' => 'blog.index'],
                     ['title' => '…'],
@@ -19,7 +19,7 @@
                 </h1>
 
                 <img
-                    class="object-cover md:rounded-lg mb-16"
+                    class="object-cover md:rounded-lg mb-16 mx-auto"
                     src="{{ $post->image_url }}"
                     alt="{{ $post->title }}"
                 >
