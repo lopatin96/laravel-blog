@@ -14,11 +14,11 @@
                 @endif
             </div>
 
-            <p class="mb-3 text-2xl font-bold text-gray-300 font-medium leading-tight">
+            <p class="mb-3 text-2xl font-bold text-white font-medium leading-tight">
                 {{ $post->title }}
             </p>
 
-            <p class="mb-4 text-white leading-relaxed break-words leading-snug">
+            <p class="mb-4 text-gray-400 break-words leading-snug">
                 {{ $post->preview }}
             </p>
 
