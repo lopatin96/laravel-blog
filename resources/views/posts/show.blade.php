@@ -6,7 +6,7 @@
 @section('content')
     <section class="pt-12 pb-36 bg-black overflow-hidden">
         <div class="container px-4 mx-auto max-w-4xl break-all">
-            <div class="mx-5 sm:mx-0 mb-5">
+            <div class=mb-8">
                 <x-laravel-ui-components::breadcrumbs :breadcrumbs="[
                     ['title' => __('laravel-blog::posts.Blog'), 'route' => 'blog.index'],
                     ['title' => '…'],
