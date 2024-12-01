@@ -9,8 +9,10 @@ class ChatGptPostsGenerator extends PostsGenerator
 {
     public function generate(): void
     {
-        foreach (array_keys(config('laravel-blog.content_generation_data')) as $langCode) {
-            GeneratePost::dispatch($this->postIdea, $langCode);
+        foreach (config('laravel-blog.content_generation_data') as $langCode => $data) {
+            if (random_int(0, 100) <= $data['generation_probability']) {
+                GeneratePost::dispatch($this->postIdea, $langCode);
+            }
         }
     }
 }
