@@ -10,6 +10,7 @@ class ChatGptBodyGenerator extends BodyGenerator
 {
     public function generate(): string
     {
+        $siteName = env('app.name');
         $siteDescription = config('laravel-blog.site_description');
 
         try {
@@ -28,9 +29,10 @@ TEXT,
 Write an interesting and unique article based on the following inputs:
 - **Title**: $this->title
 - **Language Code**: $this->langCode
+- **Website Name:**: $siteName
 - **Website Description**: $siteDescription
 
-Make sure the article is aligned with the website’s goals, incorporates relevant keywords (based on the website description), and provides value to the target audience. Highlight or **bold** important points throughout the article. Include a reference to the website's homepage at the end of the article using the format: `[Website Name](/[Language Code])`.
+Make sure the article is aligned with the website’s goals, incorporates relevant keywords (based on the website description), and provides value to the target audience. Highlight or **bold** important points throughout the article. Include a reference to the website's homepage at the end of the article using the format: `[Website Name](/$this->langCode)`.
 TEXT
                     ],
                 ],

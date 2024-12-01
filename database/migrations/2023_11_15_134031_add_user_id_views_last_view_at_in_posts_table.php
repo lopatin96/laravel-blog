@@ -6,12 +6,9 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
-        Schema::table('posts', function (Blueprint $table) {
+        Schema::table('posts', static function (Blueprint $table) {
             $table->foreignId('user_id')->nullable()->after('id');
             $table->unsignedInteger('views')->after('published')->default(0);
             $table->timestamp('last_view_at')->after('views')->nullable();
@@ -25,9 +22,6 @@ return new class extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::table('posts', static function (Blueprint $table) {
