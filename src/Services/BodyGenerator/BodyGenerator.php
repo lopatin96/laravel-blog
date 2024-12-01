@@ -5,7 +5,7 @@ namespace Atin\LaravelBlog\Services\BodyGenerator;
 abstract class BodyGenerator
 {
     public function __construct(
-        protected string $title,
+        protected string $postIdea,
         protected string $langCode,
     )
     {
