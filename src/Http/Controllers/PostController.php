@@ -34,13 +34,4 @@ class PostController extends Controller
             'post' => $post,
         ]);
     }
-
-    public function image(string $slug)
-    {
-        $post = Post::whereSlug($slug)
-            ->firstOrFail();
-
-        return Storage::disk('s3')
-            ->response($post->image);
-    }
 }
