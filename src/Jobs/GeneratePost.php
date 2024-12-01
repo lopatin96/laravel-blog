@@ -13,6 +13,8 @@ class GeneratePost implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
+    public $timeout = 90;
+
     public function __construct(
         protected string $postIdea,
         protected string $langCode,
