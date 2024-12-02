@@ -8,13 +8,13 @@ return [
 
     'content_generation_data' => [
         'us' => [
-            'generation_probability' => 100,
+            'generation_probability' => 20,
         ],
         'ru' => [
-            'generation_probability' => 50,
+            'generation_probability' => 10,
         ],
         'pl' => [
-            'generation_probability' => 15,
+            'generation_probability' => 20,
         ],
     ],
 ];
