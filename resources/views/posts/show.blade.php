@@ -21,7 +21,7 @@
                 <img
                     class="object-cover md:rounded-lg mb-16 mx-auto"
                     src="{{ $post->image_url }}"
-                    alt="{{ $post->image_alt }}"
+                    alt="{{ $post->image_alt ?? $post->title }}"
                 >
 
                 <div class="leading-normal">
