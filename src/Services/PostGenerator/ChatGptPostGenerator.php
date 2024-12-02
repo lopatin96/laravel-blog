@@ -35,7 +35,7 @@ class ChatGptPostGenerator extends PostGenerator
 
         if (LanguageHelper::detectWritingSystem($newPostBody) === WritingSystem::Logographic) {
             $post->update([
-                'slug' => mb_substr(strip_tags(preg_replace('/[#*_`~>\\-]+|^-+$/m', '', $post->body)), 0, 64)
+                'slug' => mb_substr(strip_tags(preg_replace('/[#*_`~>\\-]+|^-+$/m', '', $post->body)), 0, 64),
             ]);
         }
     }
