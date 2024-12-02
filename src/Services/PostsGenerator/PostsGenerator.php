@@ -11,6 +11,7 @@ abstract class PostsGenerator
     {
         $posts = Post::latest()
             ->published()
+            ->where('geo', 'en')
             ->take(10)
             ->get(['title', 'views'])
             ->toArray();

@@ -2,6 +2,8 @@
 
 namespace Atin\LaravelBlog\Services\PostGenerator;
 
+use Atin\LaravelBlog\Enums\WritingSystem;
+use Atin\LaravelBlog\Helpers\LanguageHelper;
 use Atin\LaravelBlog\Models\Post;
 use Atin\LaravelBlog\Services\BodyGenerator\ChatGptBodyGenerator;
 use Atin\LaravelBlog\Services\ImageAltGenerator\ChatGptImageAltGenerator;
@@ -19,7 +21,7 @@ class ChatGptPostGenerator extends PostGenerator
         $newPostBody = (new ChatGptBodyGenerator($this->postIdea, $this->langCode))->generate();
         $imageAlt = (new ChatGptImageAltGenerator($newPostBody, $this->langCode))->generate();
 
-        Post::create([
+        $post = Post::create([
             'title' => (new ChatGptTitleGenerator($newPostBody, $this->langCode))->generate(),
             'image' => S3ImageUploader::uploadFromUrl((new ChatGptImageGenerator($imageAlt))->generate()),
             'image_alt' => $imageAlt,
@@ -30,5 +32,11 @@ class ChatGptPostGenerator extends PostGenerator
             'meta_description' => (new ChatGptMetaDescriptionGenerator($newPostBody, $this->langCode))->generate(),
             'published' => true,
         ]);
+
+        if (LanguageHelper::detectWritingSystem($newPostBody) === WritingSystem::Logographic) {
+            $post->update([
+                'slug' => mb_substr(strip_tags(preg_replace('/[#*_`~>\\-]+|^-+$/m', '', $post->body)), 0, 64)
+            ]);
+        }
     }
 }
