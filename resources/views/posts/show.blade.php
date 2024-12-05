@@ -4,7 +4,7 @@
 <x-laravel-seo::description :description="$post->meta_description" />
 
 @section('content')
-    <section class="pt-12 pb-36 bg-black overflow-hidden">
+    <section class="py-12 bg-black overflow-hidden">
         <div class="container px-4 mx-auto max-w-4xl break-all">
             <div class="mb-5">
                 <x-laravel-ui-components::breadcrumbs :breadcrumbs="[
@@ -18,11 +18,13 @@
                     {{ $post->title }}
                 </h1>
 
-                <img
-                    class="object-cover md:rounded-lg mb-16 mx-auto"
-                    src="{{ $post->image_url }}"
-                    alt="{{ $post->image_alt ?? $post->title }}"
-                >
+                @if($post->image)
+                    <img
+                        class="sm:float-right sm:ml-4 mb-4 w-64 sm:w-72 md:w-96 object-cover sm:rounded-lg mb-16 mx-auto"
+                        src="{{ $post->image_url }}"
+                        alt="{{ $post->image_alt ?? $post->title }}"
+                    >
+                @endif
 
                 <div class="leading-normal">
                     {!! Illuminate\Support\Str::markdown($post->body) !!}
