@@ -3,6 +3,11 @@
 <x-laravel-seo::title :strict-title="$post->meta_title ?: $post->title" />
 <x-laravel-seo::description :description="$post->meta_description" />
 
+@push('head')
+    <meta property="og:image" content="{{ $post->image_url }}">
+    <meta property="og:type" content="article">
+@endpush
+
 @section('content')
     <section class="py-12 bg-black overflow-hidden">
         <div class="container px-4 mx-auto break-all">
