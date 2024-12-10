@@ -6,13 +6,13 @@
 @push('head')
     <meta property="og:image" content="{{ $post->image_url }}">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="Ваш заголовок">
-    <meta property="og:description" content="Краткое описание страницы">
+    <meta property="og:title" content="{{ $post->title }}">
+    <meta property="og:description" content="{{ $post->preview }}">
 @endpush
 
 @section('content')
-    <section class="py-12 bg-black overflow-hidden">
-        <div class="container px-4 mx-auto break-all">
+    <div class="space-y-20">
+        <section class="break-all">
             <div class="mb-5">
                 <x-laravel-ui-components::breadcrumbs :breadcrumbs="[
                     ['title' => __('laravel-blog::posts.Blog'), 'route' => 'blog.index'],
@@ -20,7 +20,7 @@
                 ]" />
             </div>
 
-            <article class="prose prose-invert lg:prose-xl mx-auto break-normal">
+            <article class="prose prose-invert lg:prose-xl break-normal">
                 <h1 class="mt-5 mb-12 text-white font-bold font-heading tracking-px-n leading-none">
                     {{ $post->title }}
                 </h1>
@@ -47,15 +47,13 @@
                     </span>
                 </div>
             </article>
-        </div>
-    </section>
+        </section>
 
-    <section class="py-12 bg-black overflow-hidden">
-        <div class="container px-4 mx-auto max-w-5xl">
-            <h2 class="mb-6 text-3xl md:text-5xl text-white font-bold font-heading tracking-px-n leading-none">
+        <section>
+            <h2 class="mb-6 text-2xl md:text-4xl text-white font-bold font-heading tracking-px-n leading-none">
                 {{ __('laravel-blog::posts.Our Latest Articles') }}
             </h2>
-            <div class="grid grid-cols-1 sm:grid-cols-4 gap-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
                 @if(count($recentPosts) > 0)
                     @foreach($recentPosts as $post)
                         @include('laravel-blog::posts.post-card', ['post' => $post, 'compact' => true])
@@ -66,6 +64,6 @@
                     </p>
                 @endif
             </div>
-        </div>
-    </section>
+        </section>
+    </div>
 @endsection
