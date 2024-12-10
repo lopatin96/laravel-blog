@@ -17,8 +17,11 @@ class ChatGptImageGenerator extends ImageGenerator
 Highly detailed photorealistic, with natural lighting, and a neutral blurred background.
 $this->imageAlt,
 TEXT,
+                'model' => 'dall-e-3', // (‘standard’ or ‘hd’
+                'quality' => 'standard', // (‘standard’ or ‘hd’
+                'style' => 'vivid', // (‘natural’ or ‘vivid’
                 'n' => 1,
-                'size' => '512x512',
+                'size' => '1024x1024',
                 'response_format' => 'url',
             ]), false, 512, JSON_THROW_ON_ERROR);
             return $response->data[0]->url;
