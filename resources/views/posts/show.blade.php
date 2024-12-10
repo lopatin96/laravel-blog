@@ -6,6 +6,8 @@
 @push('head')
     <meta property="og:image" content="{{ $post->image_url }}">
     <meta property="og:type" content="article">
+    <meta property="og:title" content="Ваш заголовок">
+    <meta property="og:description" content="Краткое описание страницы">
 @endpush
 
 @section('content')
