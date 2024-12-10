@@ -2,7 +2,7 @@
 
 @section('content')
     <section class="py-12 bg-black overflow-hidden">
-        <div class="container px-4 mx-auto max-w-6xl">
+        <div class="container px-4 mx-auto max-w-5xl">
             <h2 class="mb-6 text-3xl md:text-5xl text-white font-bold font-heading tracking-px-n leading-none">
                 {{ __('laravel-blog::posts.Our Latest Articles') }}
             </h2>

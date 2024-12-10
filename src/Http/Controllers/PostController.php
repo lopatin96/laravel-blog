@@ -30,8 +30,15 @@ class PostController extends Controller
             $post->timestamps = true;
         }
 
+        $recentPosts = Post::where('id', '!=', $post->id)
+            ->latest()
+            ->where('geo', $post->geo)
+            ->take(3)
+            ->get();
+
         return view('laravel-blog::posts.show', [
             'post' => $post,
+            'recentPosts' => $recentPosts,
         ]);
     }
 }
