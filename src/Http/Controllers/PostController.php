@@ -33,7 +33,7 @@ class PostController extends Controller
         $recentPosts = Post::where('id', '!=', $post->id)
             ->latest()
             ->where('geo', $post->geo)
-            ->take(3)
+            ->take(4)
             ->get();
 
         return view('laravel-blog::posts.show', [

@@ -1,3 +1,5 @@
+@props(['post', 'compact' => false])
+
 <div class="p-4 h-full bg-gray-800 bg-opacity-70 rounded-xl">
     <div class="flex flex-col justify-between h-full">
         <a
@@ -14,16 +16,16 @@
                 @endif
             </div>
 
-            <p class="mb-3 text-2xl font-bold text-white font-medium leading-tight">
+            <p class="mb-3 {{ $compact ? 'text-base' : 'text-2xl' }} font-bold text-white font-medium leading-tight break-words">
                 {{ $post->title }}
             </p>
 
-            <p class="mb-4 text-gray-400 break-words leading-snug">
+            <p class="mb-4 {{ $compact ? 'text-sm' : 'text-base' }} text-gray-400 break-words leading-snug">
                 {{ $post->preview }}
             </p>
 
             <div class="flex items-center justify-between">
-                <div class="underline group-hover:no-underline">
+                <div class="{{ $compact ? 'text-sm' : 'text-base' }} underline group-hover:no-underline">
                     {{ __('laravel-blog::posts.Read more') }}
                 </div>
 
