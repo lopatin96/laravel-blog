@@ -11,7 +11,6 @@ class ChatGptBodyGenerator extends BodyGenerator
     public function generate(): string
     {
         $siteName = config('app.name');
-        var_dump($siteName);
 
         $siteDescription = config('laravel-blog.site_description');
 
@@ -42,7 +41,7 @@ Conclude the article with another reference to the homepage: `[$siteName](/$this
 TEXT
                     ],
                 ],
-                'max_tokens' => 6000,
+                'max_tokens' => 8000,
             ]), false, 512, JSON_THROW_ON_ERROR);
 
             return $response->choices[0]->message->content;
