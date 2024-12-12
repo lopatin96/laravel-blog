@@ -10,7 +10,9 @@ class ChatGptBodyGenerator extends BodyGenerator
 {
     public function generate(): string
     {
-        $siteName = env('app.name');
+        $siteName = config('app.name');
+        var_dump($siteName);
+
         $siteDescription = config('laravel-blog.site_description');
 
         try {
@@ -32,13 +34,15 @@ Write an interesting and unique article based on the following inputs:
 - **Website Name**: $siteName
 - **Website Description**: $siteDescription
 
-Do not generate title! Ensure the article is aligned with the website’s goals, incorporates relevant keywords (based on the website description), and provides value to the target audience. Highlight or **bold** important points throughout the article. Include at least two or three references to the website's homepage in the format: `[try for free now](/$this->langCode)`, `[visit our platform](/$this->langCode)`, or `[get started now](/$this->langCode)`. These links should fit naturally into the content and encourage users to engage with the website. Make sure that the link text is translated to the language specified by `$this->langCode` (e.g., for Ukrainian, use "почати зараз", "відвідайте нашу платформу").
+Do not generate title! Ensure the article is aligned with the website’s goals, incorporates relevant keywords (based on the website description), and provides value to the target audience. Highlight or **bold** important points throughout the article. Use the website name (“{$siteName}”) explicitly in the article instead of general terms like “our platform” or “our site”.
 
-Conclude the article by referencing the homepage again: `[$siteName](/$this->langCode)`, ensuring the text is appropriate to the article's context and translated accordingly.
+Include at least three references to the website's homepage distributed evenly throughout the article. Use the following formats for the links: `[try for free now](/$this->langCode)`, `[visit $siteName](/$this->langCode)`, or `[get started now](/$this->langCode)`. Ensure that the link text is translated to the language specified by `$this->langCode` (e.g., for Ukrainian, use "почати зараз", "відвідайте Антипла"). The links should fit naturally into the content and encourage users to engage with $siteName.
+
+Conclude the article with another reference to the homepage: `[$siteName](/$this->langCode)`, ensuring the text is appropriate to the article's context and translated accordingly.
 TEXT
                     ],
                 ],
-                'max_tokens' => 4000,
+                'max_tokens' => 6000,
             ]), false, 512, JSON_THROW_ON_ERROR);
 
             return $response->choices[0]->message->content;
