@@ -41,7 +41,7 @@ Conclude the article with another reference to the homepage: `[$siteName](/$this
 TEXT
                     ],
                 ],
-                'max_tokens' => 8000,
+                'max_tokens' => 5000,
             ]), false, 512, JSON_THROW_ON_ERROR);
 
             return $response->choices[0]->message->content;
