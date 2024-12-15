@@ -13,6 +13,7 @@ use Atin\LaravelBlog\Services\MetaDescriptionGenerator\ChatGptMetaDescriptionGen
 use Atin\LaravelBlog\Services\MetaTitleGenerator\ChatGptMetaTitleGenerator;
 use Atin\LaravelBlog\Services\TitleGenerator\ChatGptTitleGenerator;
 use Orhanerday\OpenAi\OpenAi;
+use Illuminate\Support\Str;
 
 class ChatGptPostGenerator extends PostGenerator
 {
@@ -35,7 +36,7 @@ class ChatGptPostGenerator extends PostGenerator
 
         if (LanguageHelper::detectWritingSystem($newPostBody) === WritingSystem::Logographic) {
             $post->update([
-                'slug' => mb_substr(strip_tags(preg_replace('/[#*_`~>\\-]+|^-+$/m', '', $post->body)), 0, 64),
+                'slug' => Str::slug(Str::substr($this->postIdea, 0, 64)),
             ]);
         }
     }
