@@ -3,7 +3,6 @@
 namespace Atin\LaravelBlog\Http\Controllers;
 
 use Atin\LaravelBlog\Models\Post;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\View\View;
 use Jaybizzle\CrawlerDetect\CrawlerDetect;
 use Illuminate\Support\Facades\DB;
