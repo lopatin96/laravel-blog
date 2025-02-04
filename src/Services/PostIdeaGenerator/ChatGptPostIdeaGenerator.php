@@ -30,7 +30,7 @@ Website description: $siteDescription
 You are given a list of past blog topics with their respective view counts in parentheses. Analyze the view counts to identify the audience's preferences and suggest a unique, engaging topic for the next blog post. Your response should focus on one specific topic while introducing fresh ideas related to the website's purpose.
 TEXT
                             . ( ! is_null(config('laravel-blog.site_keywords'))
-                                ? "\n\nWhen generating the post idea, make sure to incorporate some of the following keywords: ." . implode(', ', config('laravel-blog.site_keywords'))
+                                ? "\n\nWhen generating the post idea, make sure to incorporate some of the following keywords: " . implode(', ', config('laravel-blog.site_keywords'))
                                 : ''),
                     ],
                     [
