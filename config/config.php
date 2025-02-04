@@ -5,6 +5,7 @@ return [
     'footer_path' => 'sections.footer',
 
     'site_description' => '',
+    'site_keywords' => [],
 
     'content_generation_data' => [
         'us' => [
